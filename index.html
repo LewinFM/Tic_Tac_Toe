@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="Tic_Tac_Toe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <h1>Tic Tac Toe</h1>
+
+    <div class="button-container">
+        <button class="New" onclick="Neustart()">
+            <i class="fa-solid fa-rotate icon"></i>
+        </button>
+    </div>
+    <div class="container">
+        <table>
+            <tr>
+                <td><button class="ABC" onclick="myFunction(this)"></button></td>
+                <td><button class="ABC" onclick="myFunction(this)"></button></td>
+                <td><button class="ABC" onclick="myFunction(this)"></button></td>
+            </tr>
+            <tr>
+                <td><button class="ABC" onclick="myFunction(this)"></button></td>
+                <td><button class="ABC" onclick="myFunction(this)"></button></td>
+                <td><button class="ABC" onclick="myFunction(this)"></button></td>
+            </tr>
+            <tr>
+                <td><button class="ABC" onclick="myFunction(this)"></button></td>
+                <td><button class="ABC" onclick="myFunction(this)"></button></td>
+                <td><button class="ABC" onclick="myFunction(this)"></button></td>
+            </tr>
+        </table>
+
+        <div id="status">
+            Spieler <b class="XO">X</b> ist an der Reihe
+        </div>
+
+    </div>
+
+    <div class="zähler">
+        X=0
+        O=0
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        let player = "X";
+        let spielBeendet = false;
+
+        function myFunction(button) {
+
+            if (spielBeendet || button.textContent !== "") {
+                return;
+            }
+
+            button.textContent = player;
+
+            if (checkWin()) {
+                return;
+            }
+
+            // Prüfen, ob das Spiel unentschieden ist
+            const buttons = document.querySelectorAll("table button");
+
+            if ([...buttons].every(b => b.textContent !== "")) {
+                document.getElementById("status").textContent =
+                    "Unentschieden!";
+                spielBeendet = true;
+                return;
+            }
+            // Spieler wechseln
+            player = player === "X" ? "O" : "X";
+
+            document.getElementsByClassName("XO")[0].innerHTML = player;
+        }
+
+        function checkWin() {
+
+            const buttons = document.querySelectorAll("table button");
+
+            const gewinnMoeglichkeiten = [
+                [1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9],
+                [1, 4, 7],
+                [2, 5, 8],
+                [3, 6, 9],
+                [1, 5, 9],
+                [3, 5, 7]
+            ];
+
+            for (const kombination of gewinnMoeglichkeiten) {
+
+                const a = buttons[kombination[0] - 1].textContent;
+                const b = buttons[kombination[1] - 1].textContent;
+                const c = buttons[kombination[2] - 1].textContent;
+
+                if (a !== "" && a === b && b === c) {
+
+                    document.getElementById("status").textContent =
+                        "Spieler " + a + " hat gewonnen!";
+
+                    // Gewinnreihe markieren
+                    for (const nummer of kombination) {
+                        buttons[nummer - 1].classList.add("winner");
+                    }
+
+                    spielBeendet = true;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+
+        function Neustart() {
+            player = player === "X" ? "O" : "X";
+            const buttons = document.querySelectorAll(".ABC");
+            buttons.forEach((button) => button.textContent = "");
+            buttons.forEach((button) => button.classList.remove("winner"));
+            document.getElementById("status").innerHTML =
+                'Spieler <b class="XO">' + player + '</b> ist an der Reihe';
+            spielBeendet = false
+        }
+
+    </script>
+
+</body>
+
+</html>
