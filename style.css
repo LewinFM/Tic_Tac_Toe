@@ -16,11 +16,12 @@ body {
     display: grid;
     grid-template-areas:
         "a b c"
-        "d d d"
-        "e f g"
-        "h i j";
+        "d e f"
+        "g g g"
+        "h i j"
+        "k l m";
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 1fr auto auto;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 /* Überschrift oben mittig */
@@ -37,7 +38,7 @@ h1 {
 }
 
 .container {
-    grid-area: d;
+    grid-area: g;
 
     display: flex;
     flex-direction: column;
@@ -139,13 +140,13 @@ table button.winner {
 }
 
 .zählerX {
-    grid-area: f;
+    grid-area: i;
     text-align: center;
-    margin: 10px 10px 10px 10px;
+    margin: 100px 10px 10px 10px;
 }
 
 .zählerO {
-    grid-area: i;
+    grid-area: l;
     text-align: center;
     margin: 10px 10px 25px 10px;
 }
