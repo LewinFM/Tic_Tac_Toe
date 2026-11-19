@@ -130,7 +130,7 @@ table button.winner {
 }
 
 .zähler {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
 
     color: #00D9FF;
@@ -139,13 +139,15 @@ table button.winner {
 }
 
 .zählerX {
-    grid-area: e;
+    grid-area: f;
     text-align: center;
+    margin: 10px 10px 10px 10px;
 }
 
 .zählerO {
     grid-area: i;
     text-align: center;
+    margin: 10px 10px 25px 10px;
 }
 
 

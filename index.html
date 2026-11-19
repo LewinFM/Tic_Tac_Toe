@@ -43,12 +43,12 @@
 
     </div>
 
-    <div class="zähler">
-        X=0
+    <div class="zähler zählerX">
+        X = 0
     </div>
 
-    <div class="zähler">
-        O=0
+    <div class="zähler zählerO">
+        O = 0
     </div>
 
 
@@ -61,8 +61,14 @@
     <script>
         let player = "X";
         let spielBeendet = false;
-        let Xwins = 0;
-        let Owins = 0;
+        let Xwins = localStorage.getItem("Xwins") || 0;
+        let Owins = localStorage.getItem("Owins") || 0;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let counter = document.getElementsByClassName("zähler")
+            counter[0].textContent = "X = " + Xwins;
+            counter[1].textContent = "O = " + Owins;
+        });
 
         function myFunction(button) {
 
@@ -123,10 +129,18 @@
                     }
 
                     let counter = document.getElementsByClassName("zähler")
-                    counter[0].textContent = "X=1"
-                    counter[1].textContent = "O=1"
 
+                    if (a == "X") {
+                        Xwins++;
+                        localStorage.setItem("Xwins", Xwins);
+                        counter[0].textContent = "X = " + Xwins;
+                    }
 
+                    if (a == "O") {
+                        Owins++;
+                        localStorage.setItem("Owins", Owins);
+                        counter[1].textContent = "O = " + Owins;
+                    }
 
                     spielBeendet = true;
                     return true;
