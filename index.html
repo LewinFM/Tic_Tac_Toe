@@ -13,6 +13,13 @@
 
     <h1>Tic Tac Toe</h1>
 
+    <div class="button-container-zwei">
+        <button class="allnew" onclick="allnew()">
+            <i class="fa-regular fa-trash-can icon"></i>
+        </button>
+    </div>
+
+
     <div class="button-container">
         <button class="New" onclick="Neustart()">
             <i class="fa-solid fa-rotate icon"></i>
@@ -129,7 +136,7 @@
                     }
 
                     let counter = document.getElementsByClassName("zähler")
-
+debugger
                     if (a == "X") {
                         Xwins++;
                         localStorage.setItem("Xwins", Xwins);
@@ -160,6 +167,23 @@
             document.getElementById("status").innerHTML =
                 'Spieler <b class="XO">' + player + '</b> ist an der Reihe';
             spielBeendet = false
+
+        }
+
+        function allnew() {
+            if (confirm("Alles Löschen?") == true) {
+                let counter = document.getElementsByClassName("zähler")
+
+                localStorage.setItem("Xwins", 0);
+                localStorage.setItem("Owins", 0);
+
+                Xwins = 0;
+                Owins = 0;
+
+                counter[0].textContent = "X = " + Xwins;
+                counter[1].textContent = "O = " + Owins;
+                Neustart();
+            }
         }
 
     </script>

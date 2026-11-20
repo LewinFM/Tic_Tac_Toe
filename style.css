@@ -120,7 +120,6 @@ table button.winner {
 
 .New {
 
-
     font-size: 33px;
     font-weight: bold;
 
@@ -128,7 +127,7 @@ table button.winner {
 
     cursor: pointer;
 
-    margin: 10px 10px 0 0;
+    margin: 10px 10px 10px 10px;
 
     text-shadow: 0 0 10px #00D9FF;
     border: 2px solid #00D9FF;
@@ -137,8 +136,7 @@ table button.winner {
 }
 
 
-     .allnew {
-
+.allnew {
 
     font-size: 24px;
     font-weight: bold;
@@ -147,7 +145,7 @@ table button.winner {
 
     cursor: pointer;
 
-    margin: 10px 0 0 10px;
+    margin: 10px 10px 10px 10px;
 
     text-shadow: 0 0 10px #00D9FF;
     border: 2px solid #00D9FF;
@@ -182,8 +180,7 @@ table button.winner {
 
 
 .icon {
-
-    font-size: 200px;
+    font-size: 20px;
     font-weight: bold;
 
     color: #00D9FF;
