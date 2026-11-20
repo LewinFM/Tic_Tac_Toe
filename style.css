@@ -112,10 +112,16 @@ table button.winner {
 
 }
 
+.button-container-zwei {
+    grid-area: a;
+    text-align: left;
+
+}
+
 .New {
 
 
-    font-size: 28px;
+    font-size: 33px;
     font-weight: bold;
 
     background-color: #050505;
@@ -129,6 +135,28 @@ table button.winner {
     border-radius: 8px;
     box-shadow: 0 0 8px #00D9FF;
 }
+
+
+     .allnew {
+
+
+    font-size: 24px;
+    font-weight: bold;
+
+    background-color: #050505;
+
+    cursor: pointer;
+
+    margin: 10px 0 0 10px;
+
+    text-shadow: 0 0 10px #00D9FF;
+    border: 2px solid #00D9FF;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #00D9FF;
+}
+
+
+
 
 .zähler {
     font-size: 30px;
@@ -155,7 +183,7 @@ table button.winner {
 
 .icon {
 
-    font-size: 20px;
+    font-size: 200px;
     font-weight: bold;
 
     color: #00D9FF;
